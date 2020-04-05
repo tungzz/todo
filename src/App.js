@@ -9,14 +9,32 @@ class App extends Component {
       todoItem: [
         {title : 'Di mua xang', isComplete : true},
         {title : 'Dat cho di dao', isComplete :false},
-        {title : 'Mua bim bim', isComplete: false}
+        {title : 'Mua bim bim', }
       ]
     }
-    this.onItemCliked = this.onItemCliked.bind(this);
+    
     }
     
-     onItemCliked() {  
-       console.log('Item click');  
+     onItemCliked(item) {  
+        return () => {
+
+          // this.setState({
+          //   todoItems: this.state.todoItems.map(i => i !== item ? {...i} : {...i, isCompleted: !item.isCompleted})
+          // })
+        const isComplete = item.isComplete;
+        const { todoItem } = this.state;
+        const index = todoItem.indexOf(item);
+        this.setState({
+          todoItem: [
+            ...todoItem.slice(0,index),
+            {
+              ...item,
+              isComplete: !isComplete
+            },
+            ...todoItem.slice(index +1)    //immutibility
+          ]
+        })
+        }  
      }
     
     render() {
@@ -29,7 +47,7 @@ class App extends Component {
               <TodoItem 
                 key={index} 
                 item={item} 
-                onClick={this.onItemCliked} />                           
+                onClick={this.onItemCliked(item)} />                           
             )}
         </div>
       );
@@ -45,18 +63,4 @@ class App extends Component {
 
 
 
-    // return (event) => {
-      //   const isComplete = this.isComplete;
-      //   const { todoItem } = this.state;
-      //   const index = todoItem.indexOf(item);
-      //   this.setState({
-      //     todoItem: [
-      //       ...todoItem.slice(0,index),
-      //       {
-      //         ...item,
-      //         isComplete: !isComplete
-      //       },
-      //       ...todoItem.slice(index +1)    //immutibility
-      //     ]
-      //   })
-      // }  
+   
