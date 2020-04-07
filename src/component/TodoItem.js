@@ -1,9 +1,8 @@
 import React,{ Component } from 'react';
 import classNames from 'classnames';
 import './TodoItem.css';
-import checkImg from '../img/uncheck.svg';
-import checkCompleteImg from '../img/check.svg'; 
-
+import checkImg from '../img/check.svg'
+import checkCompleteImg from '../img/checkComplete.svg'
 class TodoItem extends Component {
 
 render() {
@@ -16,10 +15,10 @@ render() {
 
     return (
         
-        <div onClick={onClick} className={classNames('TodoItem', 
+        <div className={classNames('TodoItem', 
         { 'TodoItem-complete': item.isComplete }
         )}>
-            <img src={url} width={32} />
+            <img onClick={onClick} src={url} width={32} height={32}/>
             <p>{this.props.item.title}</p>
         </div>
     );

@@ -1,11 +1,10 @@
-
+/* 
 .App {
-    text-align: center;
     width: 500px;
     margin-left: auto;
     margin-right: auto;
     border: 1px solid #bebebe;
-}
+} */
 
 .TodoItem{
     font-family: 'Helvetica Neue',
@@ -15,6 +14,7 @@
     color: #4d4d4d;
     border-bottom: 1px solid #bebebe;
     padding: 10px 5px;
+    display: flex;
 }
 
 .TodoItem:last-child{
@@ -22,7 +22,7 @@
 }
 
 .TodoItem > p {
-    margin: 0;
+    margin: 0 0 0 10px;
 }
 
 .TodoItem-complete > p {
