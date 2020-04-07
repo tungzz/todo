@@ -94,9 +94,10 @@ class App extends Component {
                 onClick={this.onItemCliked(item)} />                           
             )}
           <div className="footer">
-            <button onClick={this.onClick()}>All</button>
+            {/* <button onClick={this.onClick()}>All</button>
             <button onClick={this.onClick()}>Active</button>
-            <button onClick={this.onClick()}>Complete</button>
+            <button onClick={this.onClick()}>Complete</button> */}
+            <button >Delete Complete</button>
           </div>
         </div>
       );
